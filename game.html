@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <canvas id = "gameCanvas" width = "800" height = "600"></canvas>
+
+  <script>
+  var canvas;
+  var canvasContext;
+  var ballX = 50;
+
+  window.onload = function() {
+      console.log("Hello World");
+      canvas = document.getElementById('gameCanvas');
+      canvasContext = canvas.getContext('2d');
+
+      var framesPerSec = 30;
+      setInterval(function() {
+        moveEverything();
+        drawEverything();
+      }, 1000/framesPerSec);
+  }
+
+  function moveEverything() {
+    ballX += 5;
+
+    if(ballX == canvas.width){
+      ballX = 0;
+    }
+  }
+
+  function drawEverything() {
+    canvasContext.fillStyle = 'black';
+    canvasContext.fillRect(0,0,canvas.width,canvas.height);
+
+    // ball
+    canvasContext.fillStyle = 'red'
+    canvasContext.fillRect(ballX,100,10,10);
+
+    // paddle
+    canvasContext.fillStyle = 'white'
+    canvasContext.fillRect(0, 210, 10, 100);
+  }
+
+  </script>
+
+</html>
