@@ -60,7 +60,7 @@ function moveEverything() {
       ballSpeedX = -ballSpeedX;
     } else {
       ballReset();
-    }
+    } 
   }
 
   if(ballX > canvas.width){ // passes right side
